@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buildo — Farmhouse Specialists | Bangalore & Chennai</title>
+    <meta name="description" content="Buildo builds and refurbishes farmhouses across Bangalore and Chennai. Boutique construction firm — max 3–4 projects at a time for uncompromising quality.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+            background: #FAFAF8;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --dark:         #0F1923;
+            --dark-2:       #1A2634;
+            --accent:       #C8A96E;
+            --accent-light: #E8D5A8;
+            --bg:           #FAFAF8;
+            --bg-alt:       #F2EFE9;
+            --text:         #1A1A1A;
+            --muted:        #6B7280;
+            --border:       #E5E0D8;
+            --white:        #FFFFFF;
+            --radius:       4px;
+            --shadow:       0 2px 20px rgba(0,0,0,0.08);
+            --shadow-lg:    0 8px 40px rgba(0,0,0,0.12);
+            --ease:         0.3s ease;
+            --max-w:        1200px;
+            --pad:          100px;
+        }
+
+        img { max-width: 100%; display: block; }
+        a   { text-decoration: none; color: inherit; }
+        ul  { list-style: none; }
+
+        /* ===== TYPOGRAPHY ===== */
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: block;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1.15;
+        }
+        .section-sub {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        section { padding: var(--pad) 0; }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--ease);
+            letter-spacing: 0.3px;
+        }
+        .btn svg { transition: transform var(--ease); }
+        .btn:hover svg { transform: translateX(3px); }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            border-color: var(--accent);
+        }
+        .btn-primary:hover {
+            background: #b8943e;
+            border-color: #b8943e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(200,169,110,.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255,255,255,.4);
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,.1);
+            border-color: rgba(255,255,255,.8);
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            transition: all var(--ease);
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 1px 20px rgba(0,0,0,.08);
+            backdrop-filter: blur(10px);
+        }
+        .nav-inner {
+            width: 100%;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+            transition: color var(--ease);
+        }
+        .nav-logo span { color: var(--accent); }
+        nav.scrolled .nav-logo { color: var(--dark); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,.8);
+            transition: color var(--ease);
+        }
+        nav.scrolled .nav-links a { color: var(--muted); }
+        .nav-links a:hover,
+        nav.scrolled .nav-links a:hover { color: var(--accent); }
+
+        .nav-cta {
+            color: var(--dark) !important;
+            background: var(--accent);
+            padding: 10px 22px !important;
+            border-radius: var(--radius);
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            transition: background var(--ease) !important;
+        }
+        .nav-cta:hover { background: #b8943e !important; color: var(--dark) !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px; height: 2px;
+            background: #fff;
+            transition: background var(--ease);
+        }
+        nav.scrolled .hamburger span { background: var(--dark); }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: rgba(255,255,255,.8);
+            transition: color var(--ease);
+        }
+        .mobile-menu a:hover { color: var(--accent); }
+        .mobile-close {
+            position: absolute;
+            top: 24px; right: 28px;
+            background: none; border: none;
+            color: rgba(255,255,255,.5);
+            font-size: 28px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 72px;
+        }
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: .05;
+        }
+        .hero-tilt {
+            position: absolute;
+            top: 0; right: 0;
+            width: 45%; height: 100%;
+            background: linear-gradient(135deg, transparent 45%, rgba(200,169,110,.07) 45%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 28px;
+        }
+        .hero-tag::before {
+            content: '';
+            display: block;
+            width: 28px; height: 1px;
+            background: var(--accent);
+        }
+        h1.hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(44px, 6.5vw, 84px);
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.08;
+            margin-bottom: 28px;
+            max-width: 740px;
+        }
+        h1.hero-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .hero-sub {
+            font-size: 18px;
+            color: rgba(255,255,255,.58);
+            max-width: 500px;
+            margin-bottom: 48px;
+            line-height: 1.72;
+        }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px; left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,.25);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50%      { transform: translateX(-50%) translateY(7px); }
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 52px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 40px;
+        }
+        .stat-item { text-align: center; }
+        .stat-item + .stat-item { border-left: 1px solid var(--border); }
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-num span { color: var(--accent); }
+        .stat-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+        /* ===== ABOUT ===== */
+        #about { background: var(--bg-alt); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-card-main {
+            background: var(--dark);
+            border-radius: 8px;
+            padding: 56px 48px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card-main::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            background: var(--accent);
+            opacity: .12;
+            border-radius: 50%;
+        }
+        .about-ghost-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 110px;
+            font-weight: 600;
+            color: var(--accent);
+            opacity: .18;
+            line-height: 1;
+            position: absolute;
+            top: 16px; right: 24px;
+            user-select: none;
+        }
+        .about-card-text {
+            font-size: 17px;
+            line-height: 1.72;
+            color: rgba(255,255,255,.78);
+            position: relative;
+            z-index: 1;
+        }
+        .about-card-text strong { color: var(--accent); font-weight: 600; }
+        .about-highlight {
+            background: var(--accent);
+            border-radius: 8px;
+            padding: 22px 28px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .about-highlight-icon {
+            width: 44px; height: 44px;
+            background: rgba(0,0,0,.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .about-highlight p {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1.45;
+        }
+        .about-content .section-sub { margin-top: 20px; margin-bottom: 32px; }
+        .about-points { display: flex; flex-direction: column; gap: 16px; }
+        .about-point { display: flex; gap: 14px; align-items: flex-start; }
+        .about-point .dot {
+            width: 8px; height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+        .about-point p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+        /* ===== SERVICES ===== */
+        #services { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header .section-sub { margin: 16px auto 0; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all var(--ease);
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-light);
+        }
+        .service-card-visual {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:nth-child(1) .service-card-visual {
+            background: linear-gradient(135deg, #1a2e1a 0%, #2d4f2d 100%);
+        }
+        .service-card:nth-child(2) .service-card-visual {
+            background: linear-gradient(135deg, #1a1e2e 0%, #2d3a5a 100%);
+        }
+        .service-card-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: .05;
+        }
+        .svc-icon { position: relative; z-index: 1; }
+        .service-card-body { padding: 36px; }
+        .service-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        .service-card-body p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .svc-features { display: flex; flex-direction: column; gap: 9px; }
+        .svc-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .svc-feature svg { color: var(--accent); flex-shrink: 0; }
+
+        /* ===== WHY ===== */
+        #why { background: var(--dark); }
+        #why .section-title { color: #fff; }
+        #why .section-sub   { color: rgba(255,255,255,.55); }
+        .why-header { text-align: center; margin-bottom: 64px; }
+        .why-header .section-sub { margin: 16px auto 0; }
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 2px;
+            background: rgba(255,255,255,.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .usp-card {
+            background: rgba(255,255,255,.02);
+            padding: 48px 32px;
+            transition: background var(--ease);
+        }
+        .usp-card:hover { background: rgba(200,169,110,.08); }
+        .usp-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            font-weight: 600;
+            color: var(--accent);
+            opacity: .2;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .usp-icon {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: rgba(200,169,110,.12);
+            border: 1px solid rgba(200,169,110,.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
+        .usp-icon svg { color: var(--accent); }
+        .usp-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+        .usp-card p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; }
+
+        /* ===== PROCESS ===== */
+        #process { background: var(--bg-alt); }
+        .process-header { margin-bottom: 64px; }
+        .process-header .section-sub { margin-top: 16px; }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap: 0;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 27px;
+            left: calc(10% + 28px);
+            right: calc(10% + 28px);
+            height: 1px;
+            background: var(--border);
+            z-index: 0;
+        }
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .step-num {
+            width: 54px; height: 54px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 20px;
+            transition: all var(--ease);
+        }
+        .process-step:hover .step-num {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+        }
+        .step-title { font-weight: 600; font-size: 15px; color: var(--dark); margin-bottom: 8px; }
+        .step-desc  { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+        /* ===== TEAM ===== */
+        #team { background: var(--white); }
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .team-content .section-sub { margin-top: 20px; margin-bottom: 40px; }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .expertise-item {
+            background: var(--bg-alt);
+            border-radius: 8px;
+            padding: 22px;
+            border: 1px solid var(--border);
+        }
+        .expertise-icon {
+            width: 34px; height: 34px;
+            background: rgba(200,169,110,.12);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .expertise-icon svg { color: var(--accent); }
+        .expertise-item h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+        .expertise-item p  { font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .team-visual {
+            background: var(--dark);
+            border-radius: 8px;
+            padding: 60px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-visual::before {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -60px;
+            width: 240px; height: 240px;
+            background: var(--accent);
+            opacity: .07;
+            border-radius: 50%;
+        }
+        .team-big-stat {
+            font-family: 'Playfair Display', serif;
+            font-size: 96px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .team-big-stat span { color: var(--accent); }
+        .team-stat-label {
+            font-size: 17px;
+            color: rgba(255,255,255,.55);
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .team-roles { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+        .team-role {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 6px;
+            padding: 14px 18px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .role-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+        .team-role p { font-size: 14px; color: rgba(255,255,255,.65); font-weight: 500; }
+
+        /* ===== AREAS ===== */
+        #areas { background: var(--bg-alt); }
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 24px;
+        }
+        .area-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 48px 36px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all var(--ease);
+        }
+        .area-card:hover {
+            border-color: var(--accent-light);
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+        .area-icon {
+            width: 60px; height: 60px;
+            background: rgba(200,169,110,.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .area-icon svg { color: var(--accent); }
+        .area-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        .area-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+        /* ===== CONTACT ===== */
+        #contact { background: var(--dark); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .contact-content .section-title { color: #fff; }
+        .contact-content .section-sub   { color: rgba(255,255,255,.5); margin-top: 20px; margin-bottom: 40px; }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+        .contact-detail:first-of-type { border-top: 1px solid rgba(255,255,255,.08); }
+        .contact-icon {
+            width: 44px; height: 44px;
+            background: rgba(200,169,110,.14);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-icon svg { color: var(--accent); }
+        .contact-detail-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .contact-detail-value { font-size: 16px; color: rgba(255,255,255,.85); font-weight: 500; }
+        .contact-form {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 8px;
+            padding: 48px;
+        }
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .form-sub { font-size: 14px; color: rgba(255,255,255,.38); margin-bottom: 32px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.45);
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: var(--radius);
+            padding: 13px 16px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            outline: none;
+            transition: border-color var(--ease);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: rgba(255,255,255,.22); }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--accent); }
+        .form-group textarea { resize: vertical; min-height: 96px; }
+        .form-group select option { background: var(--dark); color: #fff; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .form-note { font-size: 12px; color: rgba(255,255,255,.27); margin-top: 14px; line-height: 1.55; }
+        .btn-submit {
+            width: 100%;
+            justify-content: center;
+            font-size: 15px;
+            padding: 16px 28px;
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            border-color: #25D366;
+        }
+        .btn-whatsapp:hover {
+            background: #1ebe5d;
+            border-color: #1ebe5d;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(37,211,102,.35);
+        }
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 14px 0;
+            color: rgba(255,255,255,.2);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,.1);
+        }
+        .btn-email-fallback {
+            width: 100%;
+            justify-content: center;
+            font-size: 14px;
+            padding: 13px 28px;
+            background: transparent;
+            color: rgba(255,255,255,.5);
+            border-color: rgba(255,255,255,.12);
+        }
+        .btn-email-fallback:hover {
+            background: rgba(255,255,255,.05);
+            color: rgba(255,255,255,.8);
+            border-color: rgba(255,255,255,.25);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #080e14;
+            padding: 36px 0;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(255,255,255,.5);
+        }
+        .footer-logo span { color: var(--accent); }
+        .footer-copy { font-size: 13px; color: rgba(255,255,255,.22); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: rgba(255,255,255,.28); transition: color var(--ease); }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: .1s; }
+        .d2 { transition-delay: .2s; }
+        .d3 { transition-delay: .3s; }
+        .d4 { transition-delay: .4s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            :root { --pad: 80px; }
+            .about-grid, .team-grid, .contact-grid { gap: 48px; }
+            .usp-grid { grid-template-columns: repeat(2,1fr); }
+            .process-steps { grid-template-columns: repeat(3,1fr); }
+            .process-steps::before { display: none; }
+        }
+        @media (max-width: 768px) {
+            :root { --pad: 60px; }
+            .container, .nav-inner, .hero-content { padding-left: 24px; padding-right: 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .stat-item:nth-child(3) { border-left: none; }
+            .about-grid, .team-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+            .services-grid, .usp-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .areas-grid { grid-template-columns: 1fr; }
+            .expertise-grid { grid-template-columns: 1fr; }
+            .contact-form { padding: 32px 24px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .process-steps { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
+    <a href="#about"    onclick="closeMobileMenu()">About</a>
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#why"      onclick="closeMobileMenu()">Why Us</a>
+    <a href="#process"  onclick="closeMobileMenu()">Process</a>
+    <a href="#team"     onclick="closeMobileMenu()">Team</a>
+    <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#hero" class="nav-logo">Build<span>o</span></a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#why">Why Us</a>
+            <a href="#process">Process</a>
+            <a href="#team">Team</a>
+            <a href="#contact" class="nav-cta">Get in Touch</a>
+        </div>
+        <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-tilt"></div>
+    <div class="hero-content">
+        <div class="hero-tag">Farmhouse Specialists — Bangalore &amp; Chennai</div>
+        <h1 class="hero-title">
+            Fewer Projects.<br>
+            <em>Flawless</em> Results.
+        </h1>
+        <p class="hero-sub">
+            Building and refurbishing farmhouses across Bangalore, Chennai and beyond — with the precision only decades of expertise can deliver.
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+                Start a Conversation
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Scroll
+    </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item fade-up">
+                <div class="stat-num"><span>35</span>+</div>
+                <div class="stat-label">Years of expertise</div>
+            </div>
+            <div class="stat-item fade-up d1">
+                <div class="stat-num"><span>3</span>–4</div>
+                <div class="stat-label">Projects at any time</div>
+            </div>
+            <div class="stat-item fade-up d2">
+                <div class="stat-num"><span>100</span>%</div>
+                <div class="stat-label">End-to-end delivery</div>
+            </div>
+            <div class="stat-item fade-up d3">
+                <div class="stat-num"><span>2</span></div>
+                <div class="stat-label">Cities + 100 km radius</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-visual fade-up">
+                <div class="about-card-main">
+                    <div class="about-ghost-num">3</div>
+                    <p class="about-card-text">
+                        At Buildo, we made a deliberate choice early on: <strong>never take more than 3–4 projects at any time.</strong> This isn't a limitation — it's our commitment to you. Every project gets our complete attention, our best people, and the materials it truly deserves.
+                    </p>
+                </div>
+                <div class="about-highlight">
+                    <div class="about-highlight-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F1923" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <p>Exclusively building and refurbishing farmhouses — nothing else.</p>
+                </div>
+            </div>
+            <div class="about-content fade-up d1">
+                <span class="section-label">Our Philosophy</span>
+                <h2 class="section-title">Quality without compromise. Every single time.</h2>
+                <p class="section-sub">We are a boutique construction firm that believes great farmhouses aren't built with speed — they're built with intention, craftsmanship, and the right team behind every decision.</p>
+                <div class="about-points">
+                    <div class="about-point">
+                        <div class="dot"></div>
+                        <p>We specialize exclusively in farmhouse construction and extensions — no scattered focus, no compromises on attention.</p>
+                    </div>
+                    <div class="about-point">
+                        <div class="dot"></div>
+                        <p>Every project is managed end-to-end — from first sketch to final handover, under one roof and one accountable team.</p>
+                    </div>
+                    <div class="about-point">
+                        <div class="dot"></div>
+                        <p>Only top-grade, verified materials make it to your project. No shortcuts, no substitutions — ever.</p>
+                    </div>
+                    <div class="about-point">
+                        <div class="dot"></div>
+                        <p>Serving Bangalore, Chennai, and a 100 km radius around each — wherever great farmland exists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">What We Build</span>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-sub">Two focused areas of expertise — both driven by the same uncompromising standard of quality and craftsmanship.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-up d1">
+                <div class="service-card-visual">
+                    <svg class="svc-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <path d="M40 12L8 36v36h20V48h24v24h20V36L40 12z" stroke="#C8A96E" stroke-width="2" fill="none"/>
+                        <path d="M30 72V52h20v20" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+                        <path d="M28 36a12 12 0 0 1 24 0" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
+                        <line x1="40" y1="12" x2="40" y2="26" stroke="#C8A96E" stroke-width="1" opacity=".4"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Farmhouse Construction</h3>
+                    <p>Build your dream farmhouse from the ground up. We handle everything — site evaluation, architectural design, structural engineering, interior finishing, and landscaping.</p>
+                    <div class="svc-features">
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Site evaluation &amp; soil testing
+                        </div>
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Custom architectural design
+                        </div>
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Structural &amp; civil engineering
+                        </div>
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Interior finishing &amp; landscaping
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card fade-up d2">
+                <div class="service-card-visual">
+                    <svg class="svc-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <rect x="8" y="28" width="36" height="44" stroke="#C8A96E" stroke-width="2" fill="none"/>
+                        <rect x="44" y="14" width="28" height="58" stroke="#C8A96E" stroke-width="2" fill="none" stroke-dasharray="5 3"/>
+                        <line x1="44" y1="32" x2="40" y2="32" stroke="#C8A96E" stroke-width="1.5"/>
+                        <line x1="44" y1="48" x2="40" y2="48" stroke="#C8A96E" stroke-width="1.5"/>
+                        <line x1="44" y1="64" x2="40" y2="64" stroke="#C8A96E" stroke-width="1.5"/>
+                        <path d="M58 14V8" stroke="#C8A96E" stroke-width="1.5" stroke-dasharray="3 2"/>
+                    </svg>
+                </div>
+                <div class="service-card-body">
+                    <h3>Extensions &amp; Refurbishment</h3>
+                    <p>Breathe new life into an existing structure. Whether adding a wing, upgrading interiors, or a full structural refurbishment — we integrate new work seamlessly with what's already there.</p>
+                    <div class="svc-features">
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Structural assessment &amp; planning
+                        </div>
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Seamless extensions &amp; additions
+                        </div>
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Interior renovation &amp; upgrades
+                        </div>
+                        <div class="svc-feature">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Material matching &amp; quality control
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY BUILDO ===== -->
+<section id="why">
+    <div class="container">
+        <div class="why-header fade-up">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">Four unbreakable principles</h2>
+            <p class="section-sub">These aren't marketing words. They're the commitments that shape every decision we make, on every project.</p>
+        </div>
+        <div class="usp-grid">
+            <div class="usp-card fade-up d1">
+                <div class="usp-num">01</div>
+                <div class="usp-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <h3>Exclusive Capacity — 3 to 4 Projects Only</h3>
+                <p>We deliberately cap our workload so your project is never deprioritised. Every client gets dedicated attention from day one to handover — no exceptions.</p>
+            </div>
+            <div class="usp-card fade-up d2">
+                <div class="usp-num">02</div>
+                <div class="usp-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h3>Only Top-Grade Materials</h3>
+                <p>We source premium materials with full traceability. Nothing enters your site unless it meets our strict quality standards — no trade-offs, no substitutions, ever.</p>
+            </div>
+            <div class="usp-card fade-up d3">
+                <div class="usp-num">03</div>
+                <div class="usp-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>35+ Years of Expertise On Your Team</h3>
+                <p>Our architects and civil engineers have spent decades mastering their craft. That depth of experience shows in every joint, beam, and finish of your project.</p>
+            </div>
+            <div class="usp-card fade-up d4">
+                <div class="usp-num">04</div>
+                <div class="usp-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <h3>True End-to-End Delivery</h3>
+                <p>From the first site visit to the key handover, we own every step. No coordination gaps, no handoffs to unknown subcontractors — one team, one accountability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process">
+    <div class="container">
+        <div class="process-header fade-up">
+            <span class="section-label">How We Work</span>
+            <h2 class="section-title">Your project, from first call to final key</h2>
+            <p class="section-sub">A structured process ensures nothing falls through the cracks — and you know exactly where things stand at every stage.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step fade-up d1">
+                <div class="step-num">01</div>
+                <div class="step-title">Initial Consultation</div>
+                <div class="step-desc">We listen first. Understand your vision, site, budget, and timeline before proposing anything.</div>
+            </div>
+            <div class="process-step fade-up d2">
+                <div class="step-num">02</div>
+                <div class="step-title">Design &amp; Planning</div>
+                <div class="step-desc">Detailed architectural drawings, structural plans, and accurate cost estimates — all for your approval.</div>
+            </div>
+            <div class="process-step fade-up d3">
+                <div class="step-num">03</div>
+                <div class="step-title">Material Selection</div>
+                <div class="step-desc">We source and verify every material together with you — full transparency on grade and provenance.</div>
+            </div>
+            <div class="process-step fade-up d4">
+                <div class="step-num">04</div>
+                <div class="step-title">Construction</div>
+                <div class="step-desc">On-site execution with daily oversight from senior engineers. Regular updates, zero surprises.</div>
+            </div>
+            <div class="process-step fade-up d4">
+                <div class="step-num">05</div>
+                <div class="step-title">Handover</div>
+                <div class="step-desc">Full quality walkthrough, documentation, and after-care support before the keys change hands.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section id="team">
+    <div class="container">
+        <div class="team-grid">
+            <div class="team-content fade-up">
+                <span class="section-label">Our Team</span>
+                <h2 class="section-title">Decades of expertise, on every project</h2>
+                <p class="section-sub">Our core team of architects and civil engineers bring 35+ years of hands-on experience — not just in design, but in real-world construction and on-the-ground problem-solving.</p>
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h4>Architectural Design</h4>
+                        <p>Tailored to the farmhouse aesthetic and your lifestyle</p>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                        </div>
+                        <h4>Structural Engineering</h4>
+                        <p>Built to last generations, engineered for the terrain</p>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                        </div>
+                        <h4>Project Management</h4>
+                        <p>One accountable point of contact throughout</p>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+                        </div>
+                        <h4>Quality Assurance</h4>
+                        <p>Rigorous inspection at every construction milestone</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team-visual fade-up d2">
+                <div class="team-big-stat"><span>35</span>+</div>
+                <div class="team-stat-label">Years of combined expertise</div>
+                <div class="team-roles">
+                    <div class="team-role">
+                        <div class="role-dot"></div>
+                        <p>Senior Architects — farmhouse design specialists</p>
+                    </div>
+                    <div class="team-role">
+                        <div class="role-dot"></div>
+                        <p>Civil Engineers — structural &amp; ground expertise</p>
+                    </div>
+                    <div class="team-role">
+                        <div class="role-dot"></div>
+                        <p>Project Managers — on-site every single day</p>
+                    </div>
+                    <div class="team-role">
+                        <div class="role-dot"></div>
+                        <p>Materials Specialists — sourcing &amp; quality control</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== AREAS ===== -->
+<section id="areas">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Where We Work</span>
+            <h2 class="section-title">Serving South India's finest farmland</h2>
+            <p class="section-sub">We operate across Bangalore, Chennai, and surrounding regions — wherever great farmhouses are waiting to be built.</p>
+        </div>
+        <div class="areas-grid">
+            <div class="area-card fade-up d1">
+                <div class="area-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3>Bangalore</h3>
+                <p>City and all areas within 100 km — from Devanahalli to the Mysore Road belt and beyond.</p>
+            </div>
+            <div class="area-card fade-up d2">
+                <div class="area-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3>Chennai</h3>
+                <p>City and all areas within 100 km — from ECR to the NH-44 corridor and surrounding districts.</p>
+            </div>
+            <div class="area-card fade-up d3">
+                <div class="area-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>100 km Radius</h3>
+                <p>All towns and rural land within 100 km of either city — including tier-2 towns and premium farmland sites.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-content fade-up">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Let's talk about your project</h2>
+                <p class="section-sub">We're selective about the projects we take on — which means when you work with us, you have our complete focus. Reach out and let's start the conversation.</p>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-1.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Call or WhatsApp</div>
+                        <div class="contact-detail-value">+91 98804 24189 — Sridhar</div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Service Areas</div>
+                        <div class="contact-detail-value">Bangalore &amp; Chennai — 100 km radius</div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Project Slots</div>
+                        <div class="contact-detail-value">Currently accepting new enquiries</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form fade-up d2">
+                <h3>Start the Conversation</h3>
+                <p class="form-sub">Tell us about your project and we'll get back to you within 24 hours.</p>
+                <form id="contactForm" action="https://formspree.io/f/xnjogrkl" method="POST" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Ramesh Kumar" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Project Type</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option>New Farmhouse Construction</option>
+                            <option>Extension to Existing Structure</option>
+                            <option>Refurbishment / Renovation</option>
+                            <option>Not sure yet — need advice</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Site Location</label>
+                        <input type="text" id="location" name="location" placeholder="City / area / village">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your project</label>
+                        <textarea id="message" name="message" placeholder="Give us a rough idea — site size, what you're imagining, any specific requirements..."></textarea>
+                    </div>
+
+                    <!-- Primary: WhatsApp -->
+                    <button type="button" id="btnWhatsApp" class="btn btn-whatsapp btn-submit">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.17 1.535 5.943L.057 23.786a.5.5 0 0 0 .614.644l6.053-1.58A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.886 9.886 0 0 1-5.031-1.372l-.361-.214-3.736.976.998-3.636-.235-.374A9.861 9.861 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1c5.466 0 9.9 4.434 9.9 9.9 0 5.466-4.434 9.9-9.9 9.9z"/></svg>
+                        Send via WhatsApp
+                    </button>
+
+                    <div class="form-divider">or</div>
+
+                    <!-- Fallback: email via Formspree -->
+                    <button type="submit" id="btnEmail" class="btn btn-email-fallback btn-submit">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Prefer email? Submit this form
+                    </button>
+
+                    <p class="form-note">WhatsApp connects you directly with Sridhar — fastest response. The email form is a backup if you prefer. We reply within 24 hours either way.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">Build<span>o</span></div>
+            <div class="footer-copy">© 2025 Buildo. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    /* ---- Nav scroll ---- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ---- Mobile menu ---- */
+    function openMobileMenu() {
+        document.getElementById('mobileMenu').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    /* ---- Scroll fade animations ---- */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    /* ---- WhatsApp button ---- */
+    document.getElementById('btnWhatsApp').addEventListener('click', function() {
+        const name     = document.getElementById('name').value.trim();
+        const phone    = document.getElementById('phone').value.trim();
+        const service  = document.getElementById('service').value;
+        const location = document.getElementById('location').value.trim();
+        const message  = document.getElementById('message').value.trim();
+
+        if (!name || !phone) {
+            alert('Please fill in at least your name and phone number before sending.');
+            return;
+        }
+
+        const lines = [
+            'Hi Sridhar, I came across Buildo and I\'m interested in discussing a project.',
+            '',
+            `*Name:* ${name}`,
+            `*Phone:* ${phone}`,
+            service  ? `*Project Type:* ${service}`   : null,
+            location ? `*Location:* ${location}`       : null,
+            message  ? `*Details:* ${message}`         : null,
+        ].filter(l => l !== null).join('\n');
+
+        window.open('https://wa.me/919880424189?text=' + encodeURIComponent(lines), '_blank');
+    });
+
+    /* ---- Formspree email fallback ---- */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        /* Only runs when the email button is clicked (type="submit") */
+        /* Let the form submit normally to Formspree */
+        const btn = document.getElementById('btnEmail');
+        btn.innerHTML = 'Submitting…';
+        btn.disabled = true;
+    });
+</script>
+
+</body>
+</html>
