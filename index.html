@@ -668,6 +668,218 @@
         .role-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
         .team-role p { font-size: 14px; color: rgba(255,255,255,.65); font-weight: 500; }
 
+        /* ===== GALLERY ===== */
+        #gallery { background: var(--bg); }
+        .gallery-header { text-align: center; margin-bottom: 48px; }
+        .gallery-header .section-sub { margin: 16px auto 0; }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .gallery-filter {
+            padding: 8px 22px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all var(--ease);
+        }
+        .gallery-filter:hover,
+        .gallery-filter.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 260px;
+            gap: 16px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--dark);
+        }
+        .gallery-item.wide  { grid-column: span 2; }
+        .gallery-item.tall  { grid-row:    span 2; }
+
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s ease;
+        }
+        /* placeholder shown when no real image is set */
+        .gallery-placeholder {
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: rgba(255,255,255,.25);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        .gallery-placeholder svg { opacity: .3; }
+
+        .gallery-item:nth-child(1) .gallery-placeholder { background: linear-gradient(135deg,#1a2e1a,#2d4f2d); }
+        .gallery-item:nth-child(2) .gallery-placeholder { background: linear-gradient(135deg,#1a1e2e,#2d3a5a); }
+        .gallery-item:nth-child(3) .gallery-placeholder { background: linear-gradient(135deg,#2e1a1a,#4f2d2d); }
+        .gallery-item:nth-child(4) .gallery-placeholder { background: linear-gradient(135deg,#2a2214,#4a3c24); }
+        .gallery-item:nth-child(5) .gallery-placeholder { background: linear-gradient(135deg,#14222a,#243c4a); }
+        .gallery-item:nth-child(6) .gallery-placeholder { background: linear-gradient(135deg,#1e2a14,#384a24); }
+        .gallery-item:nth-child(7) .gallery-placeholder { background: linear-gradient(135deg,#1a1a2e,#2d2d5a); }
+        .gallery-item:nth-child(8) .gallery-placeholder { background: linear-gradient(135deg,#2e2a1a,#4a4224); }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15,25,35,.85) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity var(--ease);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .gallery-overlay p { font-size: 13px; color: rgba(255,255,255,.6); }
+        .gallery-overlay .zoom-icon {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .gallery-overlay .zoom-icon svg { color: #fff; }
+
+        /* ---- Lightbox ---- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,.93);
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox-inner {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+        }
+        .lightbox-img {
+            width: 100%;
+            border-radius: 8px;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+        .lightbox-placeholder {
+            width: 100%;
+            height: 520px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: rgba(255,255,255,.3);
+            font-size: 15px;
+        }
+        .lightbox-placeholder svg { opacity: .25; }
+        .lightbox-caption {
+            margin-top: 16px;
+            text-align: center;
+        }
+        .lightbox-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .lightbox-caption p { font-size: 14px; color: rgba(255,255,255,.45); }
+        .lightbox-close {
+            position: fixed;
+            top: 20px; right: 24px;
+            background: rgba(255,255,255,.1);
+            border: none;
+            color: #fff;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--ease);
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,.2); }
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,.1);
+            border: none;
+            color: #fff;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--ease);
+        }
+        .lightbox-nav:hover { background: rgba(255,255,255,.2); }
+        .lightbox-prev { left: 16px; }
+        .lightbox-next { right: 16px; }
+
+        .gallery-cta { text-align: center; margin-top: 48px; }
+        .gallery-cta p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 180px;
+            }
+            .gallery-item.wide { grid-column: span 2; }
+            .gallery-item.tall { grid-row: span 1; }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 220px;
+            }
+            .gallery-item.wide { grid-column: span 1; }
+        }
+
         /* ===== AREAS ===== */
         #areas { background: var(--bg-alt); }
         .areas-grid {
@@ -916,6 +1128,7 @@
     <a href="#why"      onclick="closeMobileMenu()">Why Us</a>
     <a href="#process"  onclick="closeMobileMenu()">Process</a>
     <a href="#team"     onclick="closeMobileMenu()">Team</a>
+    <a href="#gallery"  onclick="closeMobileMenu()">Projects</a>
     <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
 </div>
 
@@ -929,6 +1142,7 @@
             <a href="#why">Why Us</a>
             <a href="#process">Process</a>
             <a href="#team">Team</a>
+            <a href="#gallery">Projects</a>
             <a href="#contact" class="nav-cta">Get in Touch</a>
         </div>
         <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
@@ -1275,6 +1489,141 @@
     </div>
 </section>
 
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+    <div class="container">
+        <div class="gallery-header fade-up">
+            <span class="section-label">Our Work</span>
+            <h2 class="section-title">Projects We're Proud Of</h2>
+            <p class="section-sub">Every farmhouse tells a story. Here's a glimpse of what we've built and transformed across Bangalore and Chennai.</p>
+        </div>
+
+        <div class="gallery-filters fade-up d1">
+            <button class="gallery-filter active" data-filter="all">All Projects</button>
+            <button class="gallery-filter" data-filter="new">New Construction</button>
+            <button class="gallery-filter" data-filter="extension">Extensions</button>
+            <button class="gallery-filter" data-filter="refurb">Refurbishment</button>
+        </div>
+
+        <div class="gallery-grid fade-up d2">
+
+            <!-- FARMHOUSE PROJECT — exterior shots -->
+            <div class="gallery-item wide" data-category="new" data-title="Kanakapura Farmhouse — Evening" data-desc="New construction · Bangalore · Colonial-style farmhouse">
+                <img src="images/farm-dusk-1.jpg" alt="Kanakapura Farmhouse at dusk">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Kanakapura Farmhouse</h4>
+                    <p>New construction · Bangalore · Colonial-style</p>
+                </div>
+            </div>
+
+            <div class="gallery-item tall" data-category="new" data-title="Kanakapura Farmhouse — Front Elevation" data-desc="New construction · Bangalore · Grey &amp; white finish with terracotta accents">
+                <img src="images/farm-day-1.jpg" alt="Kanakapura Farmhouse front elevation">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Front Elevation</h4>
+                    <p>Grey &amp; white finish · terracotta accents</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="new" data-title="Kanakapura Farmhouse — Side View" data-desc="New construction · Bangalore · Landscaped approach">
+                <img src="images/farm-day-2.jpg" alt="Kanakapura Farmhouse side view">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Side View</h4>
+                    <p>Landscaped approach · natural setting</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="new" data-title="Kanakapura Farmhouse — Twilight" data-desc="New construction · Bangalore · Warm exterior lighting">
+                <img src="images/farm-twilight.jpg" alt="Kanakapura Farmhouse at twilight">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Twilight View</h4>
+                    <p>Warm exterior lighting design</p>
+                </div>
+            </div>
+
+            <!-- INTERIOR REFURBISHMENT PROJECT -->
+            <div class="gallery-item wide" data-category="refurb" data-title="Sarjapur Interior — Open Plan Living" data-desc="Refurbishment · Bangalore · Living &amp; dining area">
+                <img src="images/int-living-1.jpg" alt="Open plan living and dining area">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Sarjapur Interior Renovation</h4>
+                    <p>Open-plan living &amp; dining · Bangalore</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Living Area" data-desc="Refurbishment · Bangalore · Indirect ceiling lighting &amp; partition screen">
+                <img src="images/int-living-2.jpg" alt="Living area with decorative screen">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Living Area</h4>
+                    <p>Indirect lighting &amp; decorative screen</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Modular Kitchen" data-desc="Refurbishment · Bangalore · Grey &amp; white modular kitchen">
+                <img src="images/int-kitchen-1.jpg" alt="Modular kitchen with grey cabinets">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Modular Kitchen</h4>
+                    <p>Grey &amp; white finish · built-in appliances</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Kitchen Detail" data-desc="Refurbishment · Bangalore · Quartz countertop &amp; built-in oven">
+                <img src="images/int-kitchen-2.jpg" alt="Kitchen detail with built-in oven">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Kitchen — Built-in Appliances</h4>
+                    <p>Quartz countertop · floor-to-ceiling storage</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wide" data-category="refurb" data-title="Sarjapur Interior — Kitchen with Refrigerator" data-desc="Refurbishment · Bangalore · Full kitchen view">
+                <img src="images/int-kitchen-3.jpg" alt="Full kitchen view with refrigerator">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Full Kitchen View</h4>
+                    <p>Integrated refrigerator · open shelves</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Kitchen Storage" data-desc="Refurbishment · Bangalore · Overhead cabinets &amp; open shelving">
+                <img src="images/int-kitchen-4.jpg" alt="Kitchen overhead storage and shelving">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <h4>Kitchen Storage Wall</h4>
+                    <p>Overhead cabinets · spice shelf display</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gallery-cta fade-up">
+            <a href="#contact" class="btn btn-primary">
+                Discuss Your Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <div class="lightbox-inner">
+        <div id="lightboxContent"></div>
+        <div class="lightbox-caption">
+            <h4 id="lightboxTitle"></h4>
+            <p  id="lightboxDesc"></p>
+        </div>
+    </div>
+</div>
+
 <!-- ===== AREAS ===== -->
 <section id="areas">
     <div class="container">
@@ -1437,6 +1786,81 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    /* ---- Gallery filters ---- */
+    const filters = document.querySelectorAll('.gallery-filter');
+    const items   = document.querySelectorAll('.gallery-item');
+    filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filters.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.filter;
+            items.forEach(item => {
+                const show = cat === 'all' || item.dataset.category === cat;
+                item.style.display = show ? '' : 'none';
+            });
+        });
+    });
+
+    /* ---- Lightbox ---- */
+    const lightbox     = document.getElementById('lightbox');
+    const lbContent    = document.getElementById('lightboxContent');
+    const lbTitle      = document.getElementById('lightboxTitle');
+    const lbDesc       = document.getElementById('lightboxDesc');
+    let currentIdx = 0;
+    let visibleItems = [];
+
+    function openLightbox(idx) {
+        visibleItems = [...items].filter(i => i.style.display !== 'none');
+        currentIdx = idx;
+        renderLightbox();
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    function renderLightbox() {
+        const item = visibleItems[currentIdx];
+        const img  = item.querySelector('img');
+        lbTitle.textContent = item.dataset.title || '';
+        lbDesc.textContent  = item.dataset.desc  || '';
+        if (img) {
+            lbContent.innerHTML = `<img class="lightbox-img" src="${img.src}" alt="${img.alt}">`;
+        } else {
+            lbContent.innerHTML = `
+                <div class="lightbox-placeholder" style="background:${getComputedStyle(item.querySelector('.gallery-placeholder')).background}">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    Photo coming soon
+                </div>`;
+        }
+    }
+
+    items.forEach((item, i) => {
+        item.addEventListener('click', () => {
+            visibleItems = [...items].filter(it => it.style.display !== 'none');
+            const visIdx = visibleItems.indexOf(item);
+            openLightbox(visIdx >= 0 ? visIdx : 0);
+        });
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', () => {
+        currentIdx = (currentIdx - 1 + visibleItems.length) % visibleItems.length;
+        renderLightbox();
+    });
+    document.getElementById('lightboxNext').addEventListener('click', () => {
+        currentIdx = (currentIdx + 1) % visibleItems.length;
+        renderLightbox();
+    });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape')     closeLightbox();
+        if (e.key === 'ArrowLeft')  { currentIdx = (currentIdx - 1 + visibleItems.length) % visibleItems.length; renderLightbox(); }
+        if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % visibleItems.length; renderLightbox(); }
+    });
 
     /* ---- WhatsApp button ---- */
     document.getElementById('btnWhatsApp').addEventListener('click', function() {
