@@ -3,34 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buildo — Farmhouse Specialists | Bangalore & Chennai</title>
-    <meta name="description" content="Buildo builds and refurbishes farmhouses across Bangalore and Chennai. Boutique construction firm — max 3–4 projects at a time for uncompromising quality.">
+    <title>Soil &amp; Strata Constructions | From Foundation to Finish | Karnataka, Tamil Nadu &amp; Kerala</title>
+    <meta name="description" content="Soil & Strata Constructions builds farmhouses, renovates apartments and takes on general construction anywhere in Karnataka, Tamil Nadu and Kerala. A boutique firm taking only 3 to 4 projects at a time, from foundation to finish.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 48'%3E%3Cg fill='none' stroke='%232B2724' stroke-width='2.4' stroke-linejoin='miter'%3E%3Cpath d='M3 20 20 6l17 14'/%3E%3Cpath d='M29 13V7'/%3E%3Cpath d='M8 17v13M32 17v13'/%3E%3C/g%3E%3Crect x='13' y='21' width='5' height='9' fill='%232B2724'/%3E%3Crect x='6' y='31' width='28' height='5' fill='%23C9B693'/%3E%3Crect x='6' y='37' width='28' height='5' fill='%238A5A2B'/%3E%3Crect x='6' y='43' width='28' height='5' fill='%233E4043'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Montserrat:wght@500;600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: 'Inter', sans-serif;
-            color: #1A1A1A;
-            background: #FAFAF8;
+            color: #2B2724;
+            background: #F9F6F0;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* ===== VARIABLES ===== */
         :root {
-            --dark:         #0F1923;
-            --dark-2:       #1A2634;
-            --accent:       #C8A96E;
-            --accent-light: #E8D5A8;
-            --bg:           #FAFAF8;
-            --bg-alt:       #F2EFE9;
-            --text:         #1A1A1A;
-            --muted:        #6B7280;
-            --border:       #E5E0D8;
+            /* Soil & Strata brand palette */
+            --dark:         #2B2724; /* Ink */
+            --dark-2:       #3E4043; /* Basalt */
+            --accent:       #C9B693; /* Sandstone */
+            --accent-light: #E3D8C2;
+            --accent-hover: #B8A47E;
+            --laterite:     #8A5A2B; /* Laterite */
+            --slab:         #B8B6B0; /* Slab 28% */
+            --subsoil:      #8A8781; /* Subsoil 50% */
+            --bg:           #F9F6F0;
+            --bg-alt:       #F4EEE4; /* Limestone */
+            --text:         #2B2724;
+            --muted:        #6E6862;
+            --border:       #E4DCCD;
             --white:        #FFFFFF;
             --radius:       4px;
             --shadow:       0 2px 20px rgba(0,0,0,0.08);
@@ -101,10 +107,10 @@
             border-color: var(--accent);
         }
         .btn-primary:hover {
-            background: #b8943e;
-            border-color: #b8943e;
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
             transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(200,169,110,.35);
+            box-shadow: 0 4px 20px rgba(201,182,147,.35);
         }
         .btn-outline {
             background: transparent;
@@ -140,15 +146,43 @@
             align-items: center;
             justify-content: space-between;
         }
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-weight: 600;
+        /* Brand lockup (mark + wordmark) */
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             color: #fff;
+            --l1: var(--accent); --l2: #A9713A; --l3: var(--subsoil);
+            --amp: var(--accent);
             transition: color var(--ease);
         }
-        .nav-logo span { color: var(--accent); }
-        nav.scrolled .nav-logo { color: var(--dark); }
+        .brand-mark { width: 30px; height: 36px; flex-shrink: 0; }
+        .brand-mark .l1 { fill: var(--l1); }
+        .brand-mark .l2 { fill: var(--l2); }
+        .brand-mark .l3 { fill: var(--l3); }
+        .brand-text { display: flex; flex-direction: column; line-height: 1; }
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: .04em;
+            white-space: nowrap;
+        }
+        .brand-name i { font-style: normal; color: var(--amp); }
+        .brand-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8.5px;
+            font-weight: 500;
+            letter-spacing: .38em;
+            text-transform: uppercase;
+            margin-top: 5px;
+            opacity: .75;
+        }
+        nav.scrolled .brand {
+            color: var(--dark);
+            --l1: var(--accent); --l2: var(--laterite); --l3: var(--dark-2);
+            --amp: var(--laterite);
+        }
 
         .nav-links {
             display: flex;
@@ -174,7 +208,7 @@
             font-weight: 600 !important;
             transition: background var(--ease) !important;
         }
-        .nav-cta:hover { background: #b8943e !important; color: var(--dark) !important; }
+        .nav-cta:hover { background: var(--accent-hover) !important; color: var(--dark) !important; }
 
         .hamburger {
             display: none;
@@ -247,7 +281,7 @@
             position: absolute;
             top: 0; right: 0;
             width: 45%; height: 100%;
-            background: linear-gradient(135deg, transparent 45%, rgba(200,169,110,.07) 45%);
+            background: linear-gradient(135deg, transparent 45%, rgba(201,182,147,.07) 45%);
         }
         .hero-content {
             position: relative;
@@ -423,8 +457,8 @@
         .section-header .section-sub { margin: 16px auto 0; }
         .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
         .service-card {
             background: var(--white);
@@ -432,6 +466,8 @@
             overflow: hidden;
             border: 1px solid var(--border);
             transition: all var(--ease);
+            display: flex;
+            flex-direction: column;
         }
         .service-card:hover {
             transform: translateY(-4px);
@@ -439,34 +475,36 @@
             border-color: var(--accent-light);
         }
         .service-card-visual {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 240px;
             position: relative;
             overflow: hidden;
+            background: var(--dark);
         }
-        .service-card:nth-child(1) .service-card-visual {
-            background: linear-gradient(135deg, #1a2e1a 0%, #2d4f2d 100%);
+        .service-card-visual img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
         }
-        .service-card:nth-child(2) .service-card-visual {
-            background: linear-gradient(135deg, #1a1e2e 0%, #2d3a5a 100%);
-        }
+        .service-card:hover .service-card-visual img { transform: scale(1.05); }
         .service-card-visual::after {
             content: '';
             position: absolute;
             inset: 0;
-            background-image:
-                linear-gradient(var(--accent) 1px, transparent 1px),
-                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: .05;
+            background: linear-gradient(to top, rgba(43,39,36,.55) 0%, transparent 45%);
         }
-        .svc-icon { position: relative; z-index: 1; }
-        .service-card-body { padding: 36px; }
+        .svc-num {
+            position: absolute;
+            left: 24px; bottom: 16px;
+            z-index: 1;
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
+            letter-spacing: .2em;
+            color: var(--accent);
+        }
+        .service-card-body { padding: 32px; display: flex; flex-direction: column; flex: 1; }
         .service-card-body h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 23px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 12px;
@@ -485,7 +523,20 @@
             font-size: 14px;
             color: var(--text);
         }
-        .svc-feature svg { color: var(--accent); flex-shrink: 0; }
+        .svc-feature svg { color: var(--laterite); flex-shrink: 0; }
+        .svc-link {
+            margin-top: auto;
+            padding-top: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: var(--laterite);
+        }
+        .svc-link svg { transition: transform var(--ease); }
+        .svc-link:hover svg { transform: translateX(3px); }
 
         /* ===== WHY ===== */
         #why { background: var(--dark); }
@@ -506,7 +557,7 @@
             padding: 48px 32px;
             transition: background var(--ease);
         }
-        .usp-card:hover { background: rgba(200,169,110,.08); }
+        .usp-card:hover { background: rgba(201,182,147,.08); }
         .usp-num {
             font-family: 'Playfair Display', serif;
             font-size: 46px;
@@ -519,8 +570,8 @@
         .usp-icon {
             width: 50px; height: 50px;
             border-radius: 50%;
-            background: rgba(200,169,110,.12);
-            border: 1px solid rgba(200,169,110,.22);
+            background: rgba(201,182,147,.12);
+            border: 1px solid rgba(201,182,147,.22);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -609,7 +660,7 @@
         }
         .expertise-icon {
             width: 34px; height: 34px;
-            background: rgba(200,169,110,.12);
+            background: rgba(201,182,147,.12);
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -702,6 +753,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: 260px;
+            grid-auto-flow: dense;
             gap: 16px;
         }
         .gallery-item {
@@ -746,7 +798,7 @@
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(15,25,35,.85) 0%, transparent 55%);
+            background: linear-gradient(to top, rgba(43,39,36,.85) 0%, transparent 55%);
             opacity: 0;
             transition: opacity var(--ease);
             display: flex;
@@ -764,6 +816,14 @@
             margin-bottom: 4px;
         }
         .gallery-overlay p { font-size: 13px; color: rgba(255,255,255,.6); }
+        .gallery-cat {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
         .gallery-overlay .zoom-icon {
             position: absolute;
             top: 16px; right: 16px;
@@ -882,42 +942,78 @@
 
         /* ===== AREAS ===== */
         #areas { background: var(--bg-alt); }
-        .areas-grid {
+        .areas-wrap {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 24px;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 72px;
+            align-items: center;
         }
-        .area-card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 48px 36px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all var(--ease);
+        .areas-copy .section-sub { margin-top: 16px; }
+        .areas-list {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        .area-card:hover {
-            border-color: var(--accent-light);
-            box-shadow: var(--shadow);
-            transform: translateY(-2px);
-        }
-        .area-icon {
-            width: 60px; height: 60px;
-            background: rgba(200,169,110,.1);
-            border-radius: 50%;
+        .areas-list li {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text);
         }
-        .area-icon svg { color: var(--accent); }
-        .area-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
+        .areas-list li::before {
+            content: '';
+            width: 18px; height: 4px;
+            background: var(--laterite);
+            flex-shrink: 0;
+        }
+        .areas-cta {
+            margin-top: 36px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 8px;
+            color: var(--laterite);
         }
-        .area-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+        .areas-cta svg { transition: transform var(--ease); }
+        .areas-cta:hover svg { transform: translateX(3px); }
+
+        /* house sitting on three strata, one per state */
+        .strata { max-width: 400px; width: 100%; margin-left: auto; }
+        .strata-house {
+            display: block;
+            width: 88%;
+            margin: 0 auto -1px;
+            color: var(--dark);
+        }
+        .stratum {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            height: 64px;
+            margin-top: 5px;
+            transition: transform var(--ease);
+        }
+        .stratum:hover { transform: translateX(6px); }
+        .stratum-name {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: .06em;
+        }
+        .stratum-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .3em;
+            opacity: .7;
+        }
+        .stratum.s1 { background: var(--accent);   color: var(--dark); }
+        .stratum.s2 { background: var(--laterite); color: #F4EEE4; }
+        .stratum.s3 { background: var(--dark-2);   color: #F4EEE4; }
 
         /* ===== CONTACT ===== */
         #contact { background: var(--dark); }
@@ -939,7 +1035,7 @@
         .contact-detail:first-of-type { border-top: 1px solid rgba(255,255,255,.08); }
         .contact-icon {
             width: 44px; height: 44px;
-            background: rgba(200,169,110,.14);
+            background: rgba(201,182,147,.14);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1009,15 +1105,17 @@
             padding: 16px 28px;
         }
         .btn-whatsapp {
-            background: #25D366;
-            color: #fff;
-            border-color: #25D366;
+            font-size: 14px;
+            padding: 13px 28px;
+            background: transparent;
+            color: rgba(255,255,255,.75);
+            border-color: rgba(255,255,255,.15);
         }
+        .btn-whatsapp svg { color: #25D366; }
         .btn-whatsapp:hover {
-            background: #1ebe5d;
-            border-color: #1ebe5d;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(37,211,102,.35);
+            background: rgba(37,211,102,.08);
+            color: #fff;
+            border-color: rgba(37,211,102,.5);
         }
         .form-divider {
             display: flex;
@@ -1036,24 +1134,10 @@
             height: 1px;
             background: rgba(255,255,255,.1);
         }
-        .btn-email-fallback {
-            width: 100%;
-            justify-content: center;
-            font-size: 14px;
-            padding: 13px 28px;
-            background: transparent;
-            color: rgba(255,255,255,.5);
-            border-color: rgba(255,255,255,.12);
-        }
-        .btn-email-fallback:hover {
-            background: rgba(255,255,255,.05);
-            color: rgba(255,255,255,.8);
-            border-color: rgba(255,255,255,.25);
-        }
 
         /* ===== FOOTER ===== */
         footer {
-            background: #080e14;
+            background: #211E1B;
             padding: 36px 0;
         }
         .footer-inner {
@@ -1063,13 +1147,15 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 600;
-            color: rgba(255,255,255,.5);
+        .footer-logo { color: rgba(255,255,255,.7); }
+        .footer-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.35);
+            margin-top: 10px;
         }
-        .footer-logo span { color: var(--accent); }
         .footer-copy { font-size: 13px; color: rgba(255,255,255,.22); }
         .footer-links { display: flex; gap: 24px; }
         .footer-links a { font-size: 13px; color: rgba(255,255,255,.28); transition: color var(--ease); }
@@ -1090,6 +1176,7 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             :root { --pad: 80px; }
+            .services-grid { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
             .about-grid, .team-grid, .contact-grid { gap: 48px; }
             .usp-grid { grid-template-columns: repeat(2,1fr); }
             .process-steps { grid-template-columns: repeat(3,1fr); }
@@ -1105,7 +1192,10 @@
             .about-grid, .team-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
             .services-grid, .usp-grid { grid-template-columns: 1fr; }
             .process-steps { grid-template-columns: 1fr 1fr; }
-            .areas-grid { grid-template-columns: 1fr; }
+            .areas-wrap { grid-template-columns: 1fr; gap: 48px; }
+            .strata { margin: 0 auto; }
+            .stratum { height: 54px; padding: 0 22px; }
+            .stratum-name { font-size: 20px; }
             .expertise-grid { grid-template-columns: 1fr; }
             .contact-form { padding: 32px 24px; }
             .form-row { grid-template-columns: 1fr; }
@@ -1135,7 +1225,7 @@
 <!-- NAV -->
 <nav id="navbar">
     <div class="nav-inner">
-        <a href="#hero" class="nav-logo">Build<span>o</span></a>
+        <a href="#hero" class="nav-logo brand" aria-label="Soil &amp; Strata Constructions home"><svg class="brand-mark" viewBox="0 0 40 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20 20 6l17 14"/><path d="M29 13V7"/><path d="M8 17v13M32 17v13"/></g><rect x="13" y="21" width="5" height="9" fill="currentColor"/><path d="M22 20h6v6h-6zM25 20v6M22 23h6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect class="l1" x="6" y="31" width="28" height="5"/><rect class="l2" x="6" y="37" width="28" height="5"/><rect class="l3" x="6" y="43" width="28" height="5"/></svg><span class="brand-text"><span class="brand-name">Soil <i>&amp;</i> Strata</span><span class="brand-sub">Constructions</span></span></a>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#services">Services</a>
@@ -1156,13 +1246,13 @@
     <div class="hero-grid-bg"></div>
     <div class="hero-tilt"></div>
     <div class="hero-content">
-        <div class="hero-tag">Farmhouse Specialists — Bangalore &amp; Chennai</div>
+        <div class="hero-tag">Farmhouses · Apartment Renovation · General Construction</div>
         <h1 class="hero-title">
             Fewer Projects.<br>
             <em>Flawless</em> Results.
         </h1>
         <p class="hero-sub">
-            Building and refurbishing farmhouses across Bangalore, Chennai and beyond — with the precision only decades of expertise can deliver.
+            Countryside farmhouses, apartments made new, and homes built from the ground up, with the precision only decades of expertise can deliver. We take on projects across Karnataka, Tamil Nadu and Kerala.
         </p>
         <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">
@@ -1195,8 +1285,8 @@
                 <div class="stat-label">End-to-end delivery</div>
             </div>
             <div class="stat-item fade-up d3">
-                <div class="stat-num"><span>2</span></div>
-                <div class="stat-label">Cities + 100 km radius</div>
+                <div class="stat-num"><span>3</span></div>
+                <div class="stat-label">States we serve</div>
             </div>
         </div>
     </div>
@@ -1210,39 +1300,39 @@
                 <div class="about-card-main">
                     <div class="about-ghost-num">3</div>
                     <p class="about-card-text">
-                        At Buildo, we made a deliberate choice early on: <strong>never take more than 3–4 projects at any time.</strong> This isn't a limitation — it's our commitment to you. Every project gets our complete attention, our best people, and the materials it truly deserves.
+                        At Soil &amp; Strata, we made a deliberate choice early on: <strong>never take more than 3 to 4 projects at any time.</strong> This isn't a limitation. It's our commitment to you. Every project gets our complete attention, our best people, and the materials it truly deserves.
                     </p>
                 </div>
                 <div class="about-highlight">
                     <div class="about-highlight-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F1923" stroke-width="2">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B2724" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
                         </svg>
                     </div>
-                    <p>Exclusively building and refurbishing farmhouses — nothing else.</p>
+                    <p>Three disciplines: farmhouses, apartment renovation and general construction. One standard.</p>
                 </div>
             </div>
             <div class="about-content fade-up d1">
                 <span class="section-label">Our Philosophy</span>
                 <h2 class="section-title">Quality without compromise. Every single time.</h2>
-                <p class="section-sub">We are a boutique construction firm that believes great farmhouses aren't built with speed — they're built with intention, craftsmanship, and the right team behind every decision.</p>
+                <p class="section-sub">We are a boutique construction firm that believes great homes aren't built with speed. They're built with intention, craftsmanship, and the right team behind every decision.</p>
                 <div class="about-points">
                     <div class="about-point">
                         <div class="dot"></div>
-                        <p>We specialize exclusively in farmhouse construction and extensions — no scattered focus, no compromises on attention.</p>
+                        <p>We focus on three things we do exceptionally well: farmhouses, apartment renovation and general construction. Nothing outside them.</p>
                     </div>
                     <div class="about-point">
                         <div class="dot"></div>
-                        <p>Every project is managed end-to-end — from first sketch to final handover, under one roof and one accountable team.</p>
+                        <p>Every project is managed end-to-end, from first sketch to final handover, under one roof and one accountable team.</p>
                     </div>
                     <div class="about-point">
                         <div class="dot"></div>
-                        <p>Only top-grade, verified materials make it to your project. No shortcuts, no substitutions — ever.</p>
+                        <p>Only top-grade, verified materials make it to your project. No shortcuts, no substitutions, ever.</p>
                     </div>
                     <div class="about-point">
                         <div class="dot"></div>
-                        <p>Serving Bangalore, Chennai, and a 100 km radius around each — wherever great farmland exists.</p>
+                        <p>We take on projects across Karnataka, Tamil Nadu and Kerala, in the city or the countryside.</p>
                     </div>
                 </div>
             </div>
@@ -1255,81 +1345,66 @@
     <div class="container">
         <div class="section-header fade-up">
             <span class="section-label">What We Build</span>
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-sub">Two focused areas of expertise — both driven by the same uncompromising standard of quality and craftsmanship.</p>
+            <h2 class="section-title">Three crafts. One standard.</h2>
+            <p class="section-sub">Whether it's a retreat on farmland, a flat that needs a fresh start, or a building rising from an empty plot, every project gets the same team, the same materials and the same attention.</p>
         </div>
         <div class="services-grid">
             <div class="service-card fade-up d1">
                 <div class="service-card-visual">
-                    <svg class="svc-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <path d="M40 12L8 36v36h20V48h24v24h20V36L40 12z" stroke="#C8A96E" stroke-width="2" fill="none"/>
-                        <path d="M30 72V52h20v20" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
-                        <path d="M28 36a12 12 0 0 1 24 0" stroke="#C8A96E" stroke-width="1.5" fill="none"/>
-                        <line x1="40" y1="12" x2="40" y2="26" stroke="#C8A96E" stroke-width="1" opacity=".4"/>
-                    </svg>
+                    <img src="images/farm-dusk-1.jpg" alt="Farmhouse at dusk" loading="lazy" style="object-position:center 60%">
+                    <span class="svc-num">01</span>
                 </div>
                 <div class="service-card-body">
-                    <h3>Farmhouse Construction</h3>
-                    <p>Build your dream farmhouse from the ground up. We handle everything — site evaluation, architectural design, structural engineering, interior finishing, and landscaping.</p>
+                    <h3>Farmhouses</h3>
+                    <p>From an empty stretch of farmland to a finished retreat, or new life for a farmhouse you already own. We design for the land, the climate and the way you want to live there.</p>
                     <div class="svc-features">
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Site evaluation &amp; soil testing
-                        </div>
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Custom architectural design
-                        </div>
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Structural &amp; civil engineering
-                        </div>
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Interior finishing &amp; landscaping
-                        </div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Site evaluation &amp; soil testing</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom architectural design</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>New builds, extensions &amp; refurbishment</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Interiors &amp; landscaping</div>
                     </div>
+                    <a href="#gallery" class="svc-link" data-show="farm">See farmhouse projects <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                 </div>
             </div>
             <div class="service-card fade-up d2">
                 <div class="service-card-visual">
-                    <svg class="svc-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect x="8" y="28" width="36" height="44" stroke="#C8A96E" stroke-width="2" fill="none"/>
-                        <rect x="44" y="14" width="28" height="58" stroke="#C8A96E" stroke-width="2" fill="none" stroke-dasharray="5 3"/>
-                        <line x1="44" y1="32" x2="40" y2="32" stroke="#C8A96E" stroke-width="1.5"/>
-                        <line x1="44" y1="48" x2="40" y2="48" stroke="#C8A96E" stroke-width="1.5"/>
-                        <line x1="44" y1="64" x2="40" y2="64" stroke="#C8A96E" stroke-width="1.5"/>
-                        <path d="M58 14V8" stroke="#C8A96E" stroke-width="1.5" stroke-dasharray="3 2"/>
-                    </svg>
+                    <img src="images/flat1-kitchen.jpg" alt="Renovated apartment kitchen" loading="lazy" style="object-position:center">
+                    <span class="svc-num">02</span>
                 </div>
                 <div class="service-card-body">
-                    <h3>Extensions &amp; Refurbishment</h3>
-                    <p>Breathe new life into an existing structure. Whether adding a wing, upgrading interiors, or a full structural refurbishment — we integrate new work seamlessly with what's already there.</p>
+                    <h3>Apartment Renovation</h3>
+                    <p>A complete transformation of the home you already live in. Kitchens, bathrooms, wardrobes and full-flat makeovers, planned tightly, executed cleanly and handed back ready to move into.</p>
                     <div class="svc-features">
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Structural assessment &amp; planning
-                        </div>
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Seamless extensions &amp; additions
-                        </div>
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Interior renovation &amp; upgrades
-                        </div>
-                        <div class="svc-feature">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                            Material matching &amp; quality control
-                        </div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Modular kitchens &amp; wardrobes</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Bathroom remodelling &amp; waterproofing</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Flooring, ceilings &amp; lighting</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pooja units, storage &amp; joinery</div>
                     </div>
+                    <a href="#gallery" class="svc-link" data-show="apartment">See apartment renovations <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+            <div class="service-card fade-up d3">
+                <div class="service-card-visual">
+                    <img src="images/build-elevation-2.jpg" alt="Multi-storey residential building" loading="lazy" style="object-position:center 35%">
+                    <span class="svc-num">03</span>
+                </div>
+                <div class="service-card-body">
+                    <h3>General Construction</h3>
+                    <p>Independent houses, multi-storey residential buildings and complete interior fit-outs, engineered properly from the foundation up and finished with care.</p>
+                    <div class="svc-features">
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Independent &amp; multi-storey homes</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Structural &amp; civil engineering</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Façade &amp; elevation design</div>
+                        <div class="svc-feature"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Complete interior fit-outs</div>
+                    </div>
+                    <a href="#gallery" class="svc-link" data-show="construction">See construction projects <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== WHY BUILDO ===== -->
+<!-- ===== WHY SOIL & STRATA ===== -->
 <section id="why">
     <div class="container">
         <div class="why-header fade-up">
@@ -1346,8 +1421,8 @@
                         <polyline points="12 6 12 12 16 14"/>
                     </svg>
                 </div>
-                <h3>Exclusive Capacity — 3 to 4 Projects Only</h3>
-                <p>We deliberately cap our workload so your project is never deprioritised. Every client gets dedicated attention from day one to handover — no exceptions.</p>
+                <h3>Exclusive Capacity: 3 to 4 Projects Only</h3>
+                <p>We deliberately cap our workload so your project is never deprioritised. Every client gets dedicated attention from day one to handover. No exceptions.</p>
             </div>
             <div class="usp-card fade-up d2">
                 <div class="usp-num">02</div>
@@ -1357,7 +1432,7 @@
                     </svg>
                 </div>
                 <h3>Only Top-Grade Materials</h3>
-                <p>We source premium materials with full traceability. Nothing enters your site unless it meets our strict quality standards — no trade-offs, no substitutions, ever.</p>
+                <p>We source premium materials with full traceability. Nothing enters your site unless it meets our strict quality standards. No trade-offs, no substitutions, ever.</p>
             </div>
             <div class="usp-card fade-up d3">
                 <div class="usp-num">03</div>
@@ -1380,7 +1455,7 @@
                     </svg>
                 </div>
                 <h3>True End-to-End Delivery</h3>
-                <p>From the first site visit to the key handover, we own every step. No coordination gaps, no handoffs to unknown subcontractors — one team, one accountability.</p>
+                <p>From the first site visit to the key handover, we own every step. No coordination gaps, no handoffs to unknown subcontractors. One team, one accountability.</p>
             </div>
         </div>
     </div>
@@ -1392,7 +1467,7 @@
         <div class="process-header fade-up">
             <span class="section-label">How We Work</span>
             <h2 class="section-title">Your project, from first call to final key</h2>
-            <p class="section-sub">A structured process ensures nothing falls through the cracks — and you know exactly where things stand at every stage.</p>
+            <p class="section-sub">A structured process ensures nothing falls through the cracks, and you know exactly where things stand at every stage.</p>
         </div>
         <div class="process-steps">
             <div class="process-step fade-up d1">
@@ -1403,12 +1478,12 @@
             <div class="process-step fade-up d2">
                 <div class="step-num">02</div>
                 <div class="step-title">Design &amp; Planning</div>
-                <div class="step-desc">Detailed architectural drawings, structural plans, and accurate cost estimates — all for your approval.</div>
+                <div class="step-desc">Detailed architectural drawings, structural plans, and accurate cost estimates, all for your approval.</div>
             </div>
             <div class="process-step fade-up d3">
                 <div class="step-num">03</div>
                 <div class="step-title">Material Selection</div>
-                <div class="step-desc">We source and verify every material together with you — full transparency on grade and provenance.</div>
+                <div class="step-desc">We source and verify every material together with you, with full transparency on grade and provenance.</div>
             </div>
             <div class="process-step fade-up d4">
                 <div class="step-num">04</div>
@@ -1431,14 +1506,14 @@
             <div class="team-content fade-up">
                 <span class="section-label">Our Team</span>
                 <h2 class="section-title">Decades of expertise, on every project</h2>
-                <p class="section-sub">Our core team of architects and civil engineers bring 35+ years of hands-on experience — not just in design, but in real-world construction and on-the-ground problem-solving.</p>
+                <p class="section-sub">Our core team of architects and civil engineers bring 35+ years of hands-on experience, not just in design but in real-world construction and on-the-ground problem-solving.</p>
                 <div class="expertise-grid">
                     <div class="expertise-item">
                         <div class="expertise-icon">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                         </div>
                         <h4>Architectural Design</h4>
-                        <p>Tailored to the farmhouse aesthetic and your lifestyle</p>
+                        <p>Tailored to your site, your space and your lifestyle</p>
                     </div>
                     <div class="expertise-item">
                         <div class="expertise-icon">
@@ -1469,19 +1544,19 @@
                 <div class="team-roles">
                     <div class="team-role">
                         <div class="role-dot"></div>
-                        <p>Senior Architects — farmhouse design specialists</p>
+                        <p>Senior Architects: residential &amp; farmhouse design</p>
                     </div>
                     <div class="team-role">
                         <div class="role-dot"></div>
-                        <p>Civil Engineers — structural &amp; ground expertise</p>
+                        <p>Civil Engineers: structural &amp; ground expertise</p>
                     </div>
                     <div class="team-role">
                         <div class="role-dot"></div>
-                        <p>Project Managers — on-site every single day</p>
+                        <p>Project Managers: on-site every single day</p>
                     </div>
                     <div class="team-role">
                         <div class="role-dot"></div>
-                        <p>Materials Specialists — sourcing &amp; quality control</p>
+                        <p>Materials Specialists: sourcing &amp; quality control</p>
                     </div>
                 </div>
             </div>
@@ -1493,109 +1568,336 @@
 <section id="gallery">
     <div class="container">
         <div class="gallery-header fade-up">
-            <span class="section-label">Our Work</span>
-            <h2 class="section-title">Projects We're Proud Of</h2>
-            <p class="section-sub">Every farmhouse tells a story. Here's a glimpse of what we've built and transformed across Bangalore and Chennai.</p>
+            <span class="section-label">Selected Projects</span>
+            <h2 class="section-title">Our Work</h2>
+            <p class="section-sub">Farmhouses in the countryside, apartments made new, and homes built from the ground up. A selection of our recent work.</p>
         </div>
 
         <div class="gallery-filters fade-up d1">
-            <button class="gallery-filter active" data-filter="all">All Projects</button>
-            <button class="gallery-filter" data-filter="new">New Construction</button>
-            <button class="gallery-filter" data-filter="extension">Extensions</button>
-            <button class="gallery-filter" data-filter="refurb">Refurbishment</button>
+            <button class="gallery-filter active" data-filter="all">All Work</button>
+            <button class="gallery-filter" data-filter="farm">Farmhouses</button>
+            <button class="gallery-filter" data-filter="apartment">Apartment Renovation</button>
+            <button class="gallery-filter" data-filter="construction">General Construction</button>
         </div>
 
         <div class="gallery-grid fade-up d2">
-
-            <!-- FARMHOUSE PROJECT — exterior shots -->
-            <div class="gallery-item wide" data-category="new" data-title="Kanakapura Farmhouse — Evening" data-desc="New construction · Bangalore · Colonial-style farmhouse">
-                <img src="images/farm-dusk-1.jpg" alt="Kanakapura Farmhouse at dusk">
+            <div class="gallery-item wide" data-category="farm" data-title="Kanakapura Farmhouse · Evening" data-desc="Farmhouse · New build · Bangalore · Colonial-style farmhouse">
+                <img src="images/farm-dusk-1.jpg" alt="Kanakapura Farmhouse · Evening" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                    <h4>Kanakapura Farmhouse</h4>
-                    <p>New construction · Bangalore · Colonial-style</p>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Kanakapura Farmhouse at Dusk</h4>
+                    <p>New build · Bangalore · Colonial-style farmhouse</p>
                 </div>
             </div>
 
-            <div class="gallery-item tall" data-category="new" data-title="Kanakapura Farmhouse — Front Elevation" data-desc="New construction · Bangalore · Grey &amp; white finish with terracotta accents">
-                <img src="images/farm-day-1.jpg" alt="Kanakapura Farmhouse front elevation">
+            <div class="gallery-item" data-category="farm" data-title="Kanakapura Farmhouse · Front Elevation" data-desc="Farmhouse · Grey &amp; white finish · terracotta accents">
+                <img src="images/farm-day-1.jpg" alt="Kanakapura Farmhouse · Front Elevation" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
                     <h4>Front Elevation</h4>
                     <p>Grey &amp; white finish · terracotta accents</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="new" data-title="Kanakapura Farmhouse — Side View" data-desc="New construction · Bangalore · Landscaped approach">
-                <img src="images/farm-day-2.jpg" alt="Kanakapura Farmhouse side view">
+            <div class="gallery-item" data-category="farm" data-title="Kanakapura Farmhouse · Twilight View" data-desc="Farmhouse · Warm exterior lighting design">
+                <img src="images/farm-twilight.jpg" alt="Kanakapura Farmhouse · Twilight View" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                    <h4>Side View</h4>
-                    <p>Landscaped approach · natural setting</p>
-                </div>
-            </div>
-
-            <div class="gallery-item" data-category="new" data-title="Kanakapura Farmhouse — Twilight" data-desc="New construction · Bangalore · Warm exterior lighting">
-                <img src="images/farm-twilight.jpg" alt="Kanakapura Farmhouse at twilight">
-                <div class="gallery-overlay">
-                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
                     <h4>Twilight View</h4>
                     <p>Warm exterior lighting design</p>
                 </div>
             </div>
 
-            <!-- INTERIOR REFURBISHMENT PROJECT -->
-            <div class="gallery-item wide" data-category="refurb" data-title="Sarjapur Interior — Open Plan Living" data-desc="Refurbishment · Bangalore · Living &amp; dining area">
-                <img src="images/int-living-1.jpg" alt="Open plan living and dining area">
+            <div class="gallery-item" data-category="farm" data-title="Kanakapura Farmhouse · Side View" data-desc="Farmhouse · Landscaped approach · natural setting">
+                <img src="images/farm-day-2.jpg" alt="Kanakapura Farmhouse · Side View" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                    <h4>Sarjapur Interior Renovation</h4>
-                    <p>Open-plan living &amp; dining · Bangalore</p>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Side View</h4>
+                    <p>Landscaped approach · natural setting</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Living Area" data-desc="Refurbishment · Bangalore · Indirect ceiling lighting &amp; partition screen">
-                <img src="images/int-living-2.jpg" alt="Living area with decorative screen">
+            <div class="gallery-item wide" data-category="farm" data-title="Sakleshpur Farmhouse" data-desc="Farmhouse · Hill-country home · tiled verandah &amp; carved timber pillars">
+                <img src="images/sakleshpur-exterior.jpg" alt="Sakleshpur Farmhouse" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                    <h4>Living Area</h4>
-                    <p>Indirect lighting &amp; decorative screen</p>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Sakleshpur Farmhouse</h4>
+                    <p>Hill-country home · tiled verandah &amp; carved timber pillars</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Modular Kitchen" data-desc="Refurbishment · Bangalore · Grey &amp; white modular kitchen">
-                <img src="images/int-kitchen-1.jpg" alt="Modular kitchen with grey cabinets">
+            <div class="gallery-item wide" data-category="farm" data-title="Sakleshpur Farmhouse · Living Room" data-desc="Farmhouse · Carved pillars · textured lime-finish walls">
+                <img src="images/sakleshpur-living.jpg" alt="Sakleshpur Farmhouse · Living Room" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Living Room</h4>
+                    <p>Carved pillars · textured lime-finish walls</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="farm" data-title="Sakleshpur Farmhouse · Oonjal Room" data-desc="Farmhouse · Traditional swing · oxide flooring">
+                <img src="images/sakleshpur-swing.jpg" alt="Sakleshpur Farmhouse · Oonjal Room" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Oonjal Room</h4>
+                    <p>Traditional swing · oxide flooring</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="farm" data-title="Sakleshpur Farmhouse · Reading Nook" data-desc="Farmhouse · Timber daybed · rustic wall texture">
+                <img src="images/sakleshpur-daybed.jpg" alt="Sakleshpur Farmhouse · Reading Nook" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Reading Nook</h4>
+                    <p>Timber daybed · rustic wall texture</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="farm" data-title="Sakleshpur Farmhouse · Bedroom" data-desc="Farmhouse · Warm, quiet and simple">
+                <img src="images/sakleshpur-bedroom.jpg" alt="Sakleshpur Farmhouse · Bedroom" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Bedroom</h4>
+                    <p>Warm, quiet and simple</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="farm" data-title="Sakleshpur Farmhouse · Country Kitchen" data-desc="Farmhouse · Pine cabinetry · granite counter">
+                <img src="images/sakleshpur-kitchen.jpg" alt="Sakleshpur Farmhouse · Country Kitchen" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Farmhouse</span>
+                    <h4>Country Kitchen</h4>
+                    <p>Pine cabinetry · granite counter</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wide" data-category="apartment" data-title="Apartment Renovation · Modular Kitchen" data-desc="Apartment Renovation · Marble-look backsplash · under-cabinet lighting">
+                <img src="images/flat1-kitchen.jpg" alt="Apartment Renovation · Modular Kitchen" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
                     <h4>Modular Kitchen</h4>
-                    <p>Grey &amp; white finish · built-in appliances</p>
+                    <p>Marble-look backsplash · under-cabinet lighting</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Kitchen Detail" data-desc="Refurbishment · Bangalore · Quartz countertop &amp; built-in oven">
-                <img src="images/int-kitchen-2.jpg" alt="Kitchen detail with built-in oven">
+            <div class="gallery-item tall" data-category="apartment" data-title="Apartment Renovation · Breakfast Bar &amp; Partition" data-desc="Apartment Renovation · Fluted wood panelling · pendant lights">
+                <img src="images/flat1-breakfast-bar.jpg" alt="Apartment Renovation · Breakfast Bar and Partition" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                    <h4>Kitchen — Built-in Appliances</h4>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Breakfast Bar &amp; Partition</h4>
+                    <p>Fluted wood panelling · pendant lights</p>
+                </div>
+            </div>
+
+            <div class="gallery-item tall" data-category="apartment" data-title="Apartment Renovation · Under-Stair Storage" data-desc="Apartment Renovation · Fluted timber cladding with concealed doors">
+                <img src="images/flat1-staircase.jpg" alt="Apartment Renovation · Under-Stair Storage" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Under-Stair Storage</h4>
+                    <p>Fluted timber cladding with concealed doors</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="apartment" data-title="Apartment Renovation · Pooja Unit" data-desc="Apartment Renovation · CNC-cut laminate doors">
+                <img src="images/flat1-pooja-unit.jpg" alt="Apartment Renovation · Pooja Unit" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Pooja Unit</h4>
+                    <p>CNC-cut laminate doors</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wide" data-category="apartment" data-title="Sarjapur Apartment · Open-Plan Living &amp; Dining" data-desc="Apartment Renovation · Cove lighting · sliding glass partition">
+                <img src="images/int-living-1.jpg" alt="Sarjapur Apartment · Open-Plan Living and Dining" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Open-Plan Living &amp; Dining</h4>
+                    <p>Cove lighting · sliding glass partition</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="apartment" data-title="Sarjapur Apartment · Kitchen with Built-in Appliances" data-desc="Apartment Renovation · Quartz countertop · floor-to-ceiling storage">
+                <img src="images/int-kitchen-1.jpg" alt="Sarjapur Apartment · Kitchen with Built-in Appliances" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Kitchen with Built-in Appliances</h4>
                     <p>Quartz countertop · floor-to-ceiling storage</p>
                 </div>
             </div>
 
-            <div class="gallery-item wide" data-category="refurb" data-title="Sarjapur Interior — Kitchen with Refrigerator" data-desc="Refurbishment · Bangalore · Full kitchen view">
-                <img src="images/int-kitchen-3.jpg" alt="Full kitchen view with refrigerator">
+            <div class="gallery-item tall" data-category="apartment" data-title="Apartment Renovation · Pastel Modular Kitchen" data-desc="Apartment Renovation · Sage-green shutters · tall pantry unit">
+                <img src="images/flat2-kitchen.jpg" alt="Apartment Renovation · Pastel Modular Kitchen" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Pastel Modular Kitchen</h4>
+                    <p>Sage-green shutters · tall pantry unit</p>
+                </div>
+            </div>
+
+            <div class="gallery-item tall" data-category="apartment" data-title="Apartment Renovation · Walk-in Shower" data-desc="Apartment Renovation · Patterned feature tiles · recessed niche">
+                <img src="images/flat2-shower.jpg" alt="Apartment Renovation · Walk-in Shower" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Walk-in Shower</h4>
+                    <p>Patterned feature tiles · recessed niche</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="apartment" data-title="Apartment Renovation · Bathroom" data-desc="Apartment Renovation · Wall-hung WC · LED mirror · floating vanity">
+                <img src="images/flat2-bathroom.jpg" alt="Apartment Renovation · Bathroom" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Bathroom</h4>
+                    <p>Wall-hung WC · LED mirror · floating vanity</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="apartment" data-title="Apartment Renovation · Vanity Corner" data-desc="Apartment Renovation · Vessel basin · fluted wood cabinet">
+                <img src="images/flat2-vanity.jpg" alt="Apartment Renovation · Vanity Corner" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Vanity Corner</h4>
+                    <p>Vessel basin · fluted wood cabinet</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="apartment" data-title="Apartment Renovation · Crockery Unit" data-desc="Apartment Renovation · Glass-front display · open kitchen beyond">
+                <img src="images/flat2-crockery-unit.jpg" alt="Apartment Renovation · Crockery Unit" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
+                    <h4>Crockery Unit</h4>
+                    <p>Glass-front display · open kitchen beyond</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wide" data-category="apartment" data-title="Sarjapur Apartment · Full Kitchen View" data-desc="Apartment Renovation · Integrated refrigerator · open shelves">
+                <img src="images/int-kitchen-3.jpg" alt="Sarjapur Apartment · Full Kitchen View" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">Apartment Renovation</span>
                     <h4>Full Kitchen View</h4>
                     <p>Integrated refrigerator · open shelves</p>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="refurb" data-title="Sarjapur Interior — Kitchen Storage" data-desc="Refurbishment · Bangalore · Overhead cabinets &amp; open shelving">
-                <img src="images/int-kitchen-4.jpg" alt="Kitchen overhead storage and shelving">
+            <div class="gallery-item tall" data-category="construction" data-title="Residential Building · Multi-Storey Residence" data-desc="General Construction · Textured stone cladding · framed windows">
+                <img src="images/build-elevation-1.jpg" alt="Residential Building · Multi-Storey Residence" loading="lazy">
                 <div class="gallery-overlay">
                     <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                    <h4>Kitchen Storage Wall</h4>
-                    <p>Overhead cabinets · spice shelf display</p>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Multi-Storey Residence</h4>
+                    <p>Textured stone cladding · framed windows</p>
+                </div>
+            </div>
+
+            <div class="gallery-item tall" data-category="construction" data-title="Residential Building · Corner Elevation" data-desc="General Construction · Timber-look cladding · bold yellow accents">
+                <img src="images/build-elevation-2.jpg" alt="Residential Building · Corner Elevation" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Corner Elevation</h4>
+                    <p>Timber-look cladding · bold yellow accents</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wide" data-category="construction" data-title="Interior Fit-out · Marble Feature Wall" data-desc="General Construction · Backlit arch · brass inlay detailing">
+                <img src="images/fitout-feature-wall.jpg" alt="Interior Fit-out · Marble Feature Wall" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Marble Feature Wall</h4>
+                    <p>Backlit arch · brass inlay detailing</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="construction" data-title="Independent House" data-desc="General Construction · Two-floor home · grille gates">
+                <img src="images/build-house.jpg" alt="Independent House" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Independent House</h4>
+                    <p>Two-floor home · grille gates</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wide" data-category="construction" data-title="Interior Fit-out · Master Bedroom" data-desc="General Construction · Walnut &amp; white wardrobes · layered false ceiling">
+                <img src="images/fitout-master-bedroom.jpg" alt="Interior Fit-out · Master Bedroom" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Master Bedroom</h4>
+                    <p>Walnut &amp; white wardrobes · layered false ceiling</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="construction" data-title="Interior Fit-out · Wardrobe &amp; Study" data-desc="General Construction · Fluted glass panels · built-in desk">
+                <img src="images/fitout-wardrobe-study.jpg" alt="Interior Fit-out · Wardrobe and Study" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Wardrobe &amp; Study</h4>
+                    <p>Fluted glass panels · built-in desk</p>
+                </div>
+            </div>
+
+            <div class="gallery-item tall" data-category="construction" data-title="Interior Fit-out · Wardrobe Wall" data-desc="General Construction · Mint &amp; oak finish · open display shelves">
+                <img src="images/fitout-wardrobe-mint.jpg" alt="Interior Fit-out · Wardrobe Wall" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Wardrobe Wall</h4>
+                    <p>Mint &amp; oak finish · open display shelves</p>
+                </div>
+            </div>
+
+            <div class="gallery-item tall" data-category="construction" data-title="Interior Fit-out · Pooja Room" data-desc="General Construction · Marble backdrop · timber ceiling detail">
+                <img src="images/fitout-pooja.jpg" alt="Interior Fit-out · Pooja Room" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Pooja Room</h4>
+                    <p>Marble backdrop · timber ceiling detail</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="construction" data-title="Interior Fit-out · Bedroom Suite" data-desc="General Construction · Storage bed · full-height wardrobes">
+                <img src="images/fitout-bedroom.jpg" alt="Interior Fit-out · Bedroom Suite" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Bedroom Suite</h4>
+                    <p>Storage bed · full-height wardrobes</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="construction" data-title="Interior Fit-out · Wardrobe with Loft" data-desc="General Construction · Cove lighting · walnut lofts">
+                <img src="images/fitout-wardrobe-wood.jpg" alt="Interior Fit-out · Wardrobe with Loft" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="zoom-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <span class="gallery-cat">General Construction</span>
+                    <h4>Wardrobe with Loft</h4>
+                    <p>Cove lighting · walnut lofts</p>
                 </div>
             </div>
 
@@ -1627,32 +1929,29 @@
 <!-- ===== AREAS ===== -->
 <section id="areas">
     <div class="container">
-        <div class="section-header fade-up">
-            <span class="section-label">Where We Work</span>
-            <h2 class="section-title">Serving South India's finest farmland</h2>
-            <p class="section-sub">We operate across Bangalore, Chennai, and surrounding regions — wherever great farmhouses are waiting to be built.</p>
-        </div>
-        <div class="areas-grid">
-            <div class="area-card fade-up d1">
-                <div class="area-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <h3>Bangalore</h3>
-                <p>City and all areas within 100 km — from Devanahalli to the Mysore Road belt and beyond.</p>
+        <div class="areas-wrap">
+            <div class="areas-copy fade-up">
+                <span class="section-label">Where We Work</span>
+                <h2 class="section-title">Three states. One team.</h2>
+                <p class="section-sub">We take on projects across Karnataka, Tamil Nadu and Kerala. Wherever your site is, the same architects, engineers and project managers see it through from foundation to finish.</p>
+                <ul class="areas-list">
+                    <li>Farmhouses on open land</li>
+                    <li>Apartment renovations in the city</li>
+                    <li>Independent homes and residential buildings</li>
+                </ul>
+                <a href="#contact" class="areas-cta">Tell us where your site is <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
-            <div class="area-card fade-up d2">
-                <div class="area-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <h3>Chennai</h3>
-                <p>City and all areas within 100 km — from ECR to the NH-44 corridor and surrounding districts.</p>
-            </div>
-            <div class="area-card fade-up d3">
-                <div class="area-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <h3>100 km Radius</h3>
-                <p>All towns and rural land within 100 km of either city — including tier-2 towns and premium farmland sites.</p>
+            <div class="strata fade-up d2" aria-label="Karnataka, Tamil Nadu and Kerala">
+                <svg class="strata-house" viewBox="0 0 100 78" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.2">
+                    <path d="M2 40 50 5l48 35"/>
+                    <path d="M76 24V9"/>
+                    <path d="M13 32v46M87 32v46"/>
+                    <rect x="29" y="48" width="12" height="30" fill="currentColor" stroke="none"/>
+                    <path d="M56 46h16v16H56zM64 46v16M56 54h16" stroke-width="2.4"/>
+                </svg>
+                <div class="stratum s1"><span class="stratum-name">Karnataka</span><span class="stratum-num">01</span></div>
+                <div class="stratum s2"><span class="stratum-name">Tamil Nadu</span><span class="stratum-num">02</span></div>
+                <div class="stratum s3"><span class="stratum-name">Kerala</span><span class="stratum-num">03</span></div>
             </div>
         </div>
     </div>
@@ -1665,14 +1964,14 @@
             <div class="contact-content fade-up">
                 <span class="section-label">Get in Touch</span>
                 <h2 class="section-title">Let's talk about your project</h2>
-                <p class="section-sub">We're selective about the projects we take on — which means when you work with us, you have our complete focus. Reach out and let's start the conversation.</p>
+                <p class="section-sub">We're selective about the projects we take on, which means when you work with us you have our complete focus. Reach out and let's start the conversation.</p>
                 <div class="contact-detail">
                     <div class="contact-icon">
                         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-1.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15z"/></svg>
                     </div>
                     <div>
                         <div class="contact-detail-label">Call or WhatsApp</div>
-                        <div class="contact-detail-value">+91 98804 24189 — Sridhar</div>
+                        <div class="contact-detail-value">+91 77603 63684 (Sridhar)</div>
                     </div>
                 </div>
                 <div class="contact-detail">
@@ -1681,7 +1980,7 @@
                     </div>
                     <div>
                         <div class="contact-detail-label">Service Areas</div>
-                        <div class="contact-detail-value">Bangalore &amp; Chennai — 100 km radius</div>
+                        <div class="contact-detail-value">Anywhere in Karnataka, Tamil Nadu &amp; Kerala</div>
                     </div>
                 </div>
                 <div class="contact-detail">
@@ -1713,10 +2012,11 @@
                         <label for="service">Project Type</label>
                         <select id="service" name="service" required>
                             <option value="">Select a service</option>
-                            <option>New Farmhouse Construction</option>
-                            <option>Extension to Existing Structure</option>
-                            <option>Refurbishment / Renovation</option>
-                            <option>Not sure yet — need advice</option>
+                            <option>Farmhouse: new build</option>
+                            <option>Farmhouse: extension or refurbishment</option>
+                            <option>Apartment renovation</option>
+                            <option>General construction / interiors</option>
+                            <option>Not sure yet, need advice</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -1725,24 +2025,24 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Tell us about your project</label>
-                        <textarea id="message" name="message" placeholder="Give us a rough idea — site size, what you're imagining, any specific requirements..."></textarea>
+                        <textarea id="message" name="message" placeholder="Give us a rough idea: site size, what you're imagining, any specific requirements..."></textarea>
                     </div>
 
-                    <!-- Primary: WhatsApp -->
-                    <button type="button" id="btnWhatsApp" class="btn btn-whatsapp btn-submit">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.17 1.535 5.943L.057 23.786a.5.5 0 0 0 .614.644l6.053-1.58A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.886 9.886 0 0 1-5.031-1.372l-.361-.214-3.736.976.998-3.636-.235-.374A9.861 9.861 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1c5.466 0 9.9 4.434 9.9 9.9 0 5.466-4.434 9.9-9.9 9.9z"/></svg>
-                        Send via WhatsApp
+                    <!-- Primary: submit enquiry (Formspree) -->
+                    <button type="submit" id="btnEmail" class="btn btn-primary btn-submit">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Send Enquiry
                     </button>
 
                     <div class="form-divider">or</div>
 
-                    <!-- Fallback: email via Formspree -->
-                    <button type="submit" id="btnEmail" class="btn btn-email-fallback btn-submit">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        Prefer email? Submit this form
+                    <!-- Secondary: WhatsApp -->
+                    <button type="button" id="btnWhatsApp" class="btn btn-whatsapp btn-submit">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.17 1.535 5.943L.057 23.786a.5.5 0 0 0 .614.644l6.053-1.58A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.886 9.886 0 0 1-5.031-1.372l-.361-.214-3.736.976.998-3.636-.235-.374A9.861 9.861 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1c5.466 0 9.9 4.434 9.9 9.9 0 5.466-4.434 9.9-9.9 9.9z"/></svg>
+                        Chat on WhatsApp instead
                     </button>
 
-                    <p class="form-note">WhatsApp connects you directly with Sridhar — fastest response. The email form is a backup if you prefer. We reply within 24 hours either way.</p>
+                    <p class="form-note">Send the form and we'll get back to you within 24 hours. Prefer to chat? WhatsApp connects you directly with Sridhar.</p>
                 </form>
             </div>
         </div>
@@ -1753,8 +2053,8 @@
 <footer>
     <div class="container">
         <div class="footer-inner">
-            <div class="footer-logo">Build<span>o</span></div>
-            <div class="footer-copy">© 2025 Buildo. All rights reserved.</div>
+            <div><div class="footer-logo brand"><svg class="brand-mark" viewBox="0 0 40 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20 20 6l17 14"/><path d="M29 13V7"/><path d="M8 17v13M32 17v13"/></g><rect x="13" y="21" width="5" height="9" fill="currentColor"/><path d="M22 20h6v6h-6zM25 20v6M22 23h6" fill="none" stroke="currentColor" stroke-width="1.2"/><rect class="l1" x="6" y="31" width="28" height="5"/><rect class="l2" x="6" y="37" width="28" height="5"/><rect class="l3" x="6" y="43" width="28" height="5"/></svg><span class="brand-text"><span class="brand-name">Soil <i>&amp;</i> Strata</span><span class="brand-sub">Constructions</span></span></div><div class="footer-tagline">From Foundation to Finish</div></div>
+            <div class="footer-copy">© 2026 Soil &amp; Strata Constructions. All rights reserved.</div>
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
@@ -1799,6 +2099,13 @@
                 const show = cat === 'all' || item.dataset.category === cat;
                 item.style.display = show ? '' : 'none';
             });
+        });
+    });
+
+    document.querySelectorAll('.svc-link[data-show]').forEach(link => {
+        link.addEventListener('click', () => {
+            const btn = document.querySelector(`.gallery-filter[data-filter="${link.dataset.show}"]`);
+            if (btn) btn.click();
         });
     });
 
@@ -1876,7 +2183,7 @@
         }
 
         const lines = [
-            'Hi Sridhar, I came across Buildo and I\'m interested in discussing a project.',
+            'Hi Sridhar, I came across Soil & Strata Constructions and I\'m interested in discussing a project.',
             '',
             `*Name:* ${name}`,
             `*Phone:* ${phone}`,
@@ -1885,13 +2192,17 @@
             message  ? `*Details:* ${message}`         : null,
         ].filter(l => l !== null).join('\n');
 
-        window.open('https://wa.me/919880424189?text=' + encodeURIComponent(lines), '_blank');
+        window.open('https://wa.me/917760363684?text=' + encodeURIComponent(lines), '_blank');
     });
 
-    /* ---- Formspree email fallback ---- */
+    /* ---- Enquiry form submit (Formspree) ---- */
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-        /* Only runs when the email button is clicked (type="submit") */
-        /* Let the form submit normally to Formspree */
+        /* Primary CTA: submits to Formspree */
+        if (!document.getElementById('name').value.trim() || !document.getElementById('phone').value.trim()) {
+            e.preventDefault();
+            alert('Please fill in at least your name and phone number before sending.');
+            return;
+        }
         const btn = document.getElementById('btnEmail');
         btn.innerHTML = 'Submitting…';
         btn.disabled = true;
