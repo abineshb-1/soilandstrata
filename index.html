@@ -924,20 +924,72 @@
         .gallery-cta { text-align: center; margin-top: 48px; }
         .gallery-cta p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
 
+        .gallery-count { display: none; }
+
+        /* Mobile: one swipeable row instead of a long grid */
         @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 180px;
+            .gallery-header { margin-bottom: 28px; }
+            .gallery-filters {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                scrollbar-width: none;
+                margin: 0 -24px 24px;
+                padding: 0 24px;
             }
-            .gallery-item.wide { grid-column: span 2; }
-            .gallery-item.tall { grid-row: span 1; }
+            .gallery-filters::-webkit-scrollbar { display: none; }
+            .gallery-filter { white-space: nowrap; flex-shrink: 0; }
+
+            .gallery-grid {
+                display: flex;
+                gap: 12px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -24px;
+                padding: 0 24px;
+                scroll-padding: 0 24px;
+            }
+            .gallery-grid::-webkit-scrollbar { display: none; }
+            .gallery-item,
+            .gallery-item.wide,
+            .gallery-item.tall {
+                flex: 0 0 84%;
+                height: 440px;
+                scroll-snap-align: start;
+            }
+            .gallery-overlay { opacity: 1; padding: 20px; }
+            .gallery-item:hover img { transform: none; }
+
+            .gallery-count {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 16px;
+                font-size: 12px;
+                color: var(--muted);
+            }
+            .gallery-count-bar {
+                flex: 1;
+                height: 2px;
+                margin-right: 16px;
+                background: var(--border);
+                position: relative;
+                overflow: hidden;
+            }
+            .gallery-count-bar span {
+                position: absolute;
+                left: 0; top: 0; bottom: 0;
+                background: var(--laterite);
+                transition: width .2s ease;
+            }
+            .gallery-cta { margin-top: 32px; }
         }
-        @media (max-width: 480px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 220px;
-            }
-            .gallery-item.wide { grid-column: span 1; }
+        @media (max-width: 400px) {
+            .gallery-item,
+            .gallery-item.wide,
+            .gallery-item.tall { height: 380px; }
         }
 
         /* ===== AREAS ===== */
@@ -1903,6 +1955,11 @@
 
         </div>
 
+        <div class="gallery-count" aria-hidden="true">
+            <div class="gallery-count-bar"><span id="galleryBar"></span></div>
+            <div id="galleryCount">1 / 1 · Swipe</div>
+        </div>
+
         <div class="gallery-cta fade-up">
             <a href="#contact" class="btn btn-primary">
                 Discuss Your Project
@@ -2099,8 +2156,26 @@
                 const show = cat === 'all' || item.dataset.category === cat;
                 item.style.display = show ? '' : 'none';
             });
+            galleryGrid.scrollLeft = 0;
+            updateGalleryCount();
         });
     });
+
+    /* ---- Mobile swipe counter ---- */
+    const galleryGrid  = document.querySelector('.gallery-grid');
+    const galleryCount = document.getElementById('galleryCount');
+    const galleryBar   = document.getElementById('galleryBar');
+    function updateGalleryCount() {
+        const shown = [...items].filter(i => i.style.display !== 'none');
+        if (!shown.length) return;
+        const step = shown[0].offsetWidth + 12;
+        const idx  = Math.min(shown.length, Math.round(galleryGrid.scrollLeft / step) + 1);
+        galleryCount.textContent = `${idx} / ${shown.length}` + (idx === 1 ? ' · Swipe' : '');
+        galleryBar.style.width = (idx / shown.length * 100) + '%';
+    }
+    galleryGrid.addEventListener('scroll', () => requestAnimationFrame(updateGalleryCount), { passive: true });
+    window.addEventListener('resize', updateGalleryCount);
+    updateGalleryCount();
 
     document.querySelectorAll('.svc-link[data-show]').forEach(link => {
         link.addEventListener('click', () => {
